@@ -10,7 +10,30 @@ const CreatePrompt = () => {
     prompt: "",
     tag: "",
   });
-  const createPrompt = async (e) => {};
+  const { data: session } = useSession();
+  const router = useRouter();
+  const createPrompt = async (e: any) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const res = await fetch("/api/prompt/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: post.prompt,
+        tag: post.tag,
+        userId: session?.user.id,
+      }),
+    });
+    setSubmitting(false);
+    if (res.ok) {
+      setPost({ prompt: "", tag: "" });
+      router.push("/");
+    } else {
+      alert("Error creating prompt");
+    }
+  };
   return (
     <Form
       type="Create"
