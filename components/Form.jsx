@@ -43,7 +43,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         </label>
         <div className="flex-end mx-3 my-5 gap-4">
           <Link href="/" className="text-gray-500 text-sm">
-            Cancel
+            Cancel this
           </Link>{" "}
           <button
             type="submit"
