@@ -1,10 +1,16 @@
-import React, { useContext } from "react";
-import myContext from "../practice/context";
+// Import useNavigation from next/navigation instead of next/router
+import { useNavigation } from "next/navigation";
 
 const New = () => {
-  const contextValue = useContext(myContext);
-  console.log(contextValue);
-  return <div>{contextValue.name}</div>;
+  // Use useNavigation hook instead of useRouter
+  const navigation = useNavigation();
+  const { id } = navigation.query;
+
+  return (
+    <div>
+      <h1>Post: {id}</h1>
+    </div>
+  );
 };
 
 export default New;
