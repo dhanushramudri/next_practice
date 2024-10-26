@@ -102,7 +102,7 @@
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-4xl;
 }
 
 .search_input {
@@ -167,4 +167,10 @@
 
 .flex-between {
   @apply flex justify-between items-center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
